@@ -2,7 +2,7 @@ import React from "react"
 
 class AddContactItem extends React.Component{
     state = {
-        id: Math.random(),
+        id: null,
         name: null,
         phone: null,
     }
@@ -14,6 +14,9 @@ class AddContactItem extends React.Component{
     }
     handleSubmit = (event) => {
         event.preventDefault();
+        this.setState({
+            id: Math.random().toString(36).substring(2) + Date.now().toString(36),
+        })
         this.props.addContact(this.state)
     }
     render(){
