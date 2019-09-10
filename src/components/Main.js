@@ -4,20 +4,20 @@ import ContactItem from "./ContactItem"
 import AddContactItem from "./AddContactItem"
 
 
-class Main extends React.Component{
-    constructor(props){
+class Main extends React.Component {
+    constructor(props) {
         super(props)
 
-        this.state={
+        this.state = {
             contacts: [],
             modalActive: false
         }
     }
     handleInput = (keyword) => {
         this.setState(prevState => {
-            const filterdItems = prevState.contacts.filter( item => {
-                return item.name.toLowerCase().includes( keyword.toString().toLowerCase() )
-            } )
+            const filterdItems = prevState.contacts.filter(item => {
+                return item.name.toLowerCase().includes(keyword.toString().toLowerCase())
+            })
             return {
                 contacts: filterdItems
             }
@@ -30,14 +30,14 @@ class Main extends React.Component{
         })
     }
     deleteContact = (id) => {
-        let contacts = this.state.contacts.filter( item => { return item.id !== id } )
+        let contacts = this.state.contacts.filter(item => { return item.id !== id })
         this.setState({
             contacts: contacts
         })
     }
     toggleModal = () => {
         this.setState({
-            modalActive : !this.state.modalActive
+            modalActive: !this.state.modalActive
         })
     }
     componentDidMount() {
@@ -48,27 +48,24 @@ class Main extends React.Component{
                     contacts: data
                 })
             })
-            // .then(console.log(this.state))
+        // .then(console.log(this.state))
     }
 
-    render(){
+    render() {
         const contacts = this.state.contacts.sort(
-                (a, b) => (a.firstName > b.firstName) ? 1 
-                : (a.firstName === b.firstName) ? ((a.lastName > b.lastName) ? 1 
-                : -1) 
-                : -1 )
+            (a, b) => (a.name > b.name) ? 1 : -1)
             .map(contact => {
-            return(
-                <ContactItem 
-                    key={contact.id}
-                    id={contact.id} 
-                    name={contact.name} 
-                    phone={contact.phone}
-                    deleteContact={this.deleteContact}
-                />
-            )
-        })
-        return(
+                return (
+                    <ContactItem
+                        key={contact.id}
+                        id={contact.id}
+                        name={contact.name}
+                        phone={contact.phone}
+                        deleteContact={this.deleteContact}
+                    />
+                )
+            })
+        return (
             <div id="main" className="card">
                 <header>
                     <Search handleInput={this.handleInput} />
@@ -76,7 +73,7 @@ class Main extends React.Component{
 
                 <div id="contacts">
                     <ul>
-                        { contacts }
+                        {contacts}
                     </ul>
                 </div>
 
@@ -86,7 +83,7 @@ class Main extends React.Component{
                     <button id="add-contact" type="submit" onClick={this.toggleModal}>+</button>
                 </div>
                 <AddContactItem addContact={this.addContact} status={this.state.modalActive} control={this.toggleModal} />
-            </div>            
+            </div>
         )
     }
 }
