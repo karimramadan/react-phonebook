@@ -2,9 +2,9 @@ import React from "react"
 
 class AddContactItem extends React.Component{
     state = {
-        id: null,
-        name: null,
-        phone: null,
+        id: Math.random().toString(36).substring(2) + Date.now().toString(36),
+        name: "",
+        phone: "",
     }
 
     handleChange = (event) => {
@@ -17,7 +17,11 @@ class AddContactItem extends React.Component{
         this.setState({
             id: Math.random().toString(36).substring(2) + Date.now().toString(36),
         })
-        this.props.addContact(this.state)
+        this.props.addContact(this.state);
+        this.setState({
+            name: "",
+            phone: "",
+        })
     }
     render(){
         const addBox = this.props.status === true ? 'show' : 'hide';
@@ -29,8 +33,8 @@ class AddContactItem extends React.Component{
                     <button id="toggle" onClick={this.props.control}>X</button>
                 </header>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" id="name" placeholder="Name" onChange={this.handleChange} />
-                    <input type="tel" id="phone" placeholder="Phone number" onChange={this.handleChange} />
+                    <input type="text" id="name" placeholder="Name" value={this.state.name} onChange={this.handleChange} />
+                    <input type="tel" id="phone" placeholder="Phone number" value={this.state.phone} onChange={this.handleChange} />
                     <button>Add</button>
                 </form>
             </section>
