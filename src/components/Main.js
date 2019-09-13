@@ -17,7 +17,9 @@ class Main extends React.Component{
         const filterdItems = this.state.contacts.filter( item => {
             return item.name.toLowerCase().includes( keyword.toString().toLowerCase() )
         } )
-        
+        filterdItems.map( item => {
+            return item.visibility = "true"
+        } )
         this.setState({
             contacts: filterdItems
         })
@@ -69,7 +71,11 @@ class Main extends React.Component{
         this.fetchContacts();    
     }
     render(){
-        const contacts = this.state.contacts.sort( (a, b) => (a.name > b.name) ? 1 : -1 ).map(contact => {
+        const contacts = this.state.contacts.sort( (a, b) => {
+            if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+            if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+            return 0;
+        }).map(contact => {
             return(
                 <ContactItem 
                     key={contact.id}
