@@ -13,43 +13,61 @@ class Main extends React.Component{
             modalActive: false
         }
     }
-    handleInput = (keyword) => {
-        this.setState(prevState => {
-            const filterdItems = prevState.contacts.filter( item => {
-                return item.name.toLowerCase().includes( keyword.toString().toLowerCase() )
-            } )
-            return {
-                contacts: filterdItems
-            }
+    handleSearch = (keyword) => {
+        const filterdItems = this.state.contacts.filter( item => {
+            return item.name.toLowerCase().includes( keyword.toString().toLowerCase() )
+        } )
+        
+        this.setState({
+            contacts: filterdItems
         })
     }
     addContact = (contact) => {
-        let contacts = [...this.state.contacts, contact]
-        this.setState({
-            contacts: contacts
+        // Sending data
+        fetch("http://localhost:3004/contacts", {
+            method: 'POST',
+            body: JSON.stringify(contact),
+            headers:{
+                'Content-Type': 'application/json'
+            }
         })
+        .then(res => res.json())
+        .then(response => console.log('Success:', JSON.stringify(response)))
+        .catch(error => console.error('Error:', error));
+        // Force a rerender -- NOT WORKING!!
+        //this.forceUpdate();
+        // Re-Fetch data -- NOT WORKING!!
+        // this.fetchContacts()
+        this.setState({ modalActive: false });
     }
     deleteContact = (id) => {
-        let contacts = this.state.contacts.filter( item => { return item.id !== id } )
-        this.setState({
-            contacts: contacts
+        fetch("http://localhost:3004/contacts/" + id, {
+            method: 'DELETE',
+            headers:{
+                'Content-Type': 'application/json'
+            }
         })
+        .then(res => res.json())
+        .then(response => console.log('Success:', JSON.stringify(response)))
+        .catch(error => console.error('Error:', error));
     }
     toggleModal = () => {
         this.setState({
             modalActive : !this.state.modalActive
         })
     }
-    componentDidMount() {
-        fetch("https://jsonplaceholder.typicode.com/users")
+    fetchContacts = () => {
+        fetch("http://localhost:3004/contacts")
             .then(response => response.json())
             .then(data => {
                 this.setState({
-                    contacts: data
+                    contacts: data,
                 })
             })
     }
-
+    componentDidMount() {
+        this.fetchContacts();    
+    }
     render(){
         const contacts = this.state.contacts.sort( (a, b) => (a.name > b.name) ? 1 : -1 ).map(contact => {
             return(
@@ -58,6 +76,7 @@ class Main extends React.Component{
                     id={contact.id} 
                     name={contact.name} 
                     phone={contact.phone}
+                    visibility={contact.visibility}
                     deleteContact={this.deleteContact}
                 />
             )
@@ -65,18 +84,17 @@ class Main extends React.Component{
         return(
             <div id="main" className="card">
                 <header>
-                    <Search handleInput={this.handleInput} />
+                    <Search handleSearch={this.handleSearch} />
                 </header>
 
                 <div id="contacts">
-                    <ul>
+                    <ul>                        
                         { contacts }
                     </ul>
                 </div>
 
                 <div className="footer">
                     <span>Number of contacts: {this.state.contacts.length}</span>
-
                     <button id="add-contact" type="submit" onClick={this.toggleModal}>+</button>
                 </div>
                 <AddContactItem addContact={this.addContact} status={this.state.modalActive} control={this.toggleModal} />

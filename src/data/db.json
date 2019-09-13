@@ -1,0 +1,94 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Leanne Graham",
+      "phone": "1-770-736-8031 x56442",
+      "visibility": "true"
+    },
+    {
+      "id": 2,
+      "name": "Ervin Howell",
+      "phone": "010-692-6593 x09125",
+      "visibility": "true"
+    },
+    {
+      "id": 3,
+      "name": "Clementine Bauch",
+      "phone": "1-463-123-4447",
+      "visibility": "true"
+    },
+    {
+      "id": 4,
+      "name": "Patricia Lebsack",
+      "phone": "493-170-9623 x156",
+      "visibility": "true"
+    },
+    {
+      "id": 5,
+      "name": "Chelsey Dietrich",
+      "phone": "(254)954-1289",
+      "visibility": "true"
+    },
+    {
+      "id": 6,
+      "name": "Mrs. Dennis Schulist",
+      "phone": "1-477-935-8478 x6430",
+      "visibility": "true"
+    },
+    {
+      "id": 7,
+      "name": "Kurtis Weissnat",
+      "phone": "210.067.6132",
+      "visibility": "true"
+    },
+    {
+      "id": 8,
+      "name": "Nicholas Runolfsdottir V",
+      "phone": "586.493.6943 x140",
+      "visibility": "true"
+    },
+    {
+      "id": 9,
+      "name": "Glenna Reichert",
+      "phone": "(775)976-6794 x41206",
+      "visibility": "true"
+    },
+    {
+      "id": 10,
+      "name": "Clementina DuBuque",
+      "phone": "024-648-3804",
+      "visibility": "true"
+    },
+    {
+      "id": "vrr0j089uzhk0gzb7pt",
+      "visibility": "true",
+      "name": "karim ramadan",
+      "phone": "0112121"
+    },
+    {
+      "id": "2zke0ov1f1fk0gzf9ns",
+      "visibility": "false",
+      "name": "Ahmed ali",
+      "phone": "0124578"
+    },
+    {
+      "id": "kz4xtiplrrkk0gzj4tq",
+      "visibility": "true",
+      "name": "Emad hamdy",
+      "phone": "7854651"
+    },
+    {
+      "id": "uhh1iaik4nk0i5nr9f",
+      "visibility": "true",
+      "name": "karim ramadan",
+      "phone": "01124839007"
+    },
+    {
+      "id": "mmehaficv3k0i606iq",
+      "visibility": "true",
+      "name": "karim ramadan",
+      "phone": "3234234234"
+    }
+  ]
+}

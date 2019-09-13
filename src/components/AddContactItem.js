@@ -2,7 +2,6 @@ import React from "react"
 
 class AddContactItem extends React.Component{
     state = {
-        id: Math.random().toString(36).substring(2) + Date.now().toString(36),
         name: "",
         phone: "",
     }
@@ -14,10 +13,12 @@ class AddContactItem extends React.Component{
     }
     handleSubmit = (event) => {
         event.preventDefault();
-        this.setState({
+        this.props.addContact({
             id: Math.random().toString(36).substring(2) + Date.now().toString(36),
-        })
-        this.props.addContact(this.state);
+            visibility: "true",
+            name:this.state.name,
+            phone:this.state.phone
+        });
         this.setState({
             name: "",
             phone: "",
@@ -33,8 +34,8 @@ class AddContactItem extends React.Component{
                     <button id="toggle" onClick={this.props.control}>X</button>
                 </header>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" id="name" placeholder="Name" value={this.state.name} onChange={this.handleChange} />
-                    <input type="tel" id="phone" placeholder="Phone number" value={this.state.phone} onChange={this.handleChange} />
+                    <input type="text" id="name" placeholder="Name *" value={this.state.name} onChange={this.handleChange} required />
+                    <input type="tel" id="phone" placeholder="Phone number *" value={this.state.phone} onChange={this.handleChange} required />
                     <button>Add</button>
                 </form>
             </section>
