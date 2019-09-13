@@ -112,6 +112,12 @@ li{
 #contacts li:nth-child(even){
   background: rgba(0, 0, 0, .020)
 }
+#contacts li.hide{
+  display: none
+}
+#contacts li.show{
+  display: flex
+}
 input{
   background: #f5f5f5;
   border-radius: 20px;    

@@ -2,7 +2,7 @@ import React from "react"
 
 function ContactItem(props){
     return(
-        <li id={props.id}>
+        <li id={props.id} className={props.visibility}>
             <span>
                 <strong>{props.name}</strong><br />
                 {props.phone}

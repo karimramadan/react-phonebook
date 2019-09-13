@@ -14,11 +14,13 @@ class Main extends React.Component{
         }
     }
     handleSearch = (keyword) => {
-        const filterdItems = this.state.contacts.filter( item => {
-            return item.name.toLowerCase().includes( keyword.toString().toLowerCase() )
-        } )
-        filterdItems.map( item => {
-            return item.visibility = "true"
+        const filterdItems = this.state.contacts;
+        filterdItems.forEach( item => {           
+            if( !item.name.toLowerCase().includes( keyword.toString().toLowerCase() ) ) {
+                return item.visibility = "hide"
+            } else {
+                return item.visibility = "show"
+            }
         } )
         this.setState({
             contacts: filterdItems

@@ -15,7 +15,7 @@ class AddContactItem extends React.Component{
         event.preventDefault();
         this.props.addContact({
             id: Math.random().toString(36).substring(2) + Date.now().toString(36),
-            visibility: "true",
+            visibility: "show",
             name:this.state.name,
             phone:this.state.phone
         });
