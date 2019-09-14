@@ -33,12 +33,11 @@ class Main extends React.Component{
         })
         .then(res => res.json())
         .then(response => console.log('Success:', JSON.stringify(response)))
+        .then(()=> {
+          this.fetchContacts();
+          this.setState({ modalActive: false });
+        })
         .catch(error => console.error('Error:', error));
-        // Force a rerender -- NOT WORKING!!
-        //this.forceUpdate();
-        // Re-Fetch data -- NOT WORKING!!
-        // this.fetchContacts()
-        this.setState({ modalActive: false });
     }
     deleteContact = (id) => {
         fetch("http://localhost:3004/contacts/" + id, {
@@ -49,6 +48,7 @@ class Main extends React.Component{
         })
         .then(res => res.json())
         .then(response => console.log('Success:', JSON.stringify(response)))
+        .then(() => this.fetchContacts())
         .catch(error => console.error('Error:', error));
     }
     toggleModal = () => {
