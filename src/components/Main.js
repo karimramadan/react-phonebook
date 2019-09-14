@@ -10,6 +10,7 @@ class Main extends React.Component{
 
         this.state={
             contacts: [],
+            isLoading: true,
             modalActive: false
         }
     }
@@ -17,9 +18,9 @@ class Main extends React.Component{
         const filterdItems = this.state.contacts;
         filterdItems.forEach( item => {           
             if( !item.name.toLowerCase().includes( keyword.toString().toLowerCase() ) ) {
-                return item.visibility = "hide"
+                return item.visibility = false
             } else {
-                return item.visibility = "show"
+                return item.visibility = true
             }
         } )
         this.setState({
@@ -65,6 +66,7 @@ class Main extends React.Component{
             .then(response => response.json())
             .then(data => {
                 this.setState({
+                    isLoading: false,
                     contacts: data,
                 })
             })
@@ -73,6 +75,7 @@ class Main extends React.Component{
         this.fetchContacts();    
     }
     render(){
+        let loading = this.state.isLoading ? "Loading" : null;
         const contacts = this.state.contacts.sort( (a, b) => {
             if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
             if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
@@ -95,9 +98,9 @@ class Main extends React.Component{
                     <Search handleSearch={this.handleSearch} />
                 </header>
 
-                <div id="contacts">
-                    <ul>                        
-                        { contacts }
+                <div id="contacts" className={loading} >
+                    <ul>
+                        { contacts  }
                     </ul>
                 </div>
 

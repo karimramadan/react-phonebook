@@ -4,119 +4,107 @@
       "id": 1,
       "name": "Leanne Graham",
       "phone": "1-770-736-8031 x56442",
-      "visibility": "show"
+      "visibility": true
     },
     {
       "id": 2,
       "name": "Ervin Howell",
       "phone": "010-692-6593 x09125",
-      "visibility": "show"
+      "visibility": true
     },
     {
       "id": 3,
       "name": "Clementine Bauch",
       "phone": "1-463-123-4447",
-      "visibility": "show"
+      "visibility": true
     },
     {
       "id": 4,
       "name": "Patricia Lebsack",
       "phone": "493-170-9623 x156",
-      "visibility": "show"
+      "visibility": true
     },
     {
       "id": 5,
       "name": "Chelsey Dietrich",
       "phone": "(254)954-1289",
-      "visibility": "show"
+      "visibility": true
     },
     {
       "id": 6,
       "name": "Mrs. Dennis Schulist",
       "phone": "1-477-935-8478 x6430",
-      "visibility": "show"
+      "visibility": true
     },
     {
       "id": 7,
       "name": "Kurtis Weissnat",
       "phone": "210.067.6132",
-      "visibility": "show"
+      "visibility": true
     },
     {
       "id": 8,
       "name": "Nicholas Runolfsdottir V",
       "phone": "586.493.6943 x140",
-      "visibility": "show"
+      "visibility": true
     },
     {
       "id": 9,
       "name": "Glenna Reichert",
       "phone": "(775)976-6794 x41206",
-      "visibility": "show"
+      "visibility": true
     },
     {
       "id": 10,
       "name": "Clementina DuBuque",
       "phone": "024-648-3804",
-      "visibility": "show"
+      "visibility": true
     },
     {
       "id": "2zke0ov1f1fk0gzf9ns",
-      "visibility": "show",
+      "visibility": true,
       "name": "Ahmed ali",
       "phone": "0124578"
     },
     {
       "id": "kz4xtiplrrkk0gzj4tq",
-      "visibility": "show",
+      "visibility": true,
       "name": "Emad hamdy",
       "phone": "7854651"
     },
     {
       "id": "9txj4d74mqk0iepkvz",
-      "visibility": "show",
+      "visibility": true,
       "name": "mohamed ali",
       "phone": "13132013"
     },
     {
-      "id": "t6w9kee6fumk0il7stb",
-      "visibility": "show",
-      "name": "abraham",
-      "phone": "23123"
-    },
-    {
       "id": "gxutodh5gyk0il8bzt",
-      "visibility": "show",
+      "visibility": true,
       "name": "ahmed baher",
       "phone": "2324234"
     },
     {
-      "id": "koq03dy8vyk0ilbcvp",
-      "visibility": "show",
-      "name": "ahmed balma",
-      "phone": "213123"
-    },
-    {
       "id": "3ixh7yk1b6dk0ilbtiq",
-      "visibility": "show",
+      "visibility": true,
       "name": "alaa abdelfatah",
       "phone": "23123"
     },
     {
       "id": "ez6wh1ambdak0im469u",
-      "visibility": "show",
+      "visibility": true,
       "name": "samy ",
       "phone": "22"
     },
     {
       "id": "5sejyvv3owvk0im4oeo",
-      "visibility": "show",
+      "visibility": true,
       "name": "Ragaa",
       "phone": "22"
     },
     {
       "id": "7ilkj1iuzclk0im4zux",
-      "visibility": "show",
+      "visibility": true,
       "name": "Ramy",
       "phone": "33"
     }
