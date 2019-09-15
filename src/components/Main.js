@@ -11,7 +11,7 @@ class Main extends React.Component{
         this.state={
             contacts: [],
             isLoading: true,
-            modalActive: false
+            addModalActive: false
         }
     }
     handleSearch = (keyword) => {
@@ -40,7 +40,7 @@ class Main extends React.Component{
         .then(response => console.log('Success:', JSON.stringify(response)))
         .then(()=> {
             this.fetchContacts();
-            this.setState({ modalActive: false });
+            this.toggleAddModal();
         })
         .catch(error => console.error('Error:', error));
     }
@@ -56,9 +56,9 @@ class Main extends React.Component{
         .then(() => this.fetchContacts())
         .catch(error => console.error('Error:', error));
     }
-    toggleModal = () => {
+    toggleAddModal = () => {
         this.setState({
-            modalActive : !this.state.modalActive
+            addModalActive : !this.state.addModalActive
         })
     }
     fetchContacts = () => {
@@ -106,13 +106,12 @@ class Main extends React.Component{
 
                 <div className="footer">
                     <span>Number of contacts: {this.state.contacts.length}</span>
-                    <button id="add-contact" type="submit" onClick={this.toggleModal}>+</button>
+                    <button id="add-contact" type="submit" onClick={this.toggleAddModal}>+</button>
                 </div>
-                <AddContactItem addContact={this.addContact} status={this.state.modalActive} control={this.toggleModal} />
+                <AddContactItem addContact={this.addContact} status={this.state.addModalActive} control={this.toggleAddModal} />
             </div>            
         )
     }
 }
-
 
 export default Main
