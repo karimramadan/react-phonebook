@@ -9,7 +9,7 @@ function ContactItem(props){
                     {props.phone}
                 </span>
                 <div className="buttons-holder">
-                    <button className="edit-button" style={{display: "none"}}></button>
+                    <button className="edit-button" onClick={() => {props.editContact(props.id, props.name, props.phone)}}></button>
                     <button className="delete-button" onClick={() => {props.deleteContact(props.id)}}></button>
                 </div>
             </li>

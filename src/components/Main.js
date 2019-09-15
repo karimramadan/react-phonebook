@@ -1,6 +1,7 @@
 import React from "react"
 import Search from "./Search"
 import ContactItem from "./ContactItem"
+import EditContactItem from "./EditContactItem"
 import AddContactItem from "./AddContactItem"
 
 
@@ -10,8 +11,12 @@ class Main extends React.Component{
 
         this.state={
             contacts: [],
+            editId: "",
+            editName: "",
+            editPhone: "",
             isLoading: true,
-            modalActive: false
+            addModalActive: false,
+            editModalActive: false
         }
     }
     handleSearch = (keyword) => {
@@ -40,9 +45,18 @@ class Main extends React.Component{
         .then(response => console.log('Success:', JSON.stringify(response)))
         .then(()=> {
             this.fetchContacts();
-            this.setState({ modalActive: false });
+            this.toggleAddModal();
         })
         .catch(error => console.error('Error:', error));
+    }
+    editContact = (id, name, phone) => {
+        console.log(id, name, phone)
+        this.toggleEditModal();
+        this.setState({
+            editId: id,
+            editName: name,
+            editPhone: phone,
+        })
     }
     deleteContact = (id) => {
         fetch("http://localhost:3004/contacts/" + id, {
@@ -56,9 +70,33 @@ class Main extends React.Component{
         .then(() => this.fetchContacts())
         .catch(error => console.error('Error:', error));
     }
-    toggleModal = () => {
+    saveContact = (contact) => {
+        console.log(contact.id)
+        const name = contact.name;
+        const phone = contact.phone;
+        fetch("http://localhost:3004/contacts/" + contact.id, {
+            method: 'PATCH',
+            body: JSON.stringify({name, phone}),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(response => console.log('Success:', JSON.stringify(response)))
+        .then(()=> {
+            this.fetchContacts();
+            this.toggleEditModal();
+        })
+        .catch(error => console.error('Error:', error));
+    }
+    toggleAddModal = () => {
         this.setState({
-            modalActive : !this.state.modalActive
+            addModalActive : !this.state.addModalActive
+        })
+    }
+    toggleEditModal = () => {
+        this.setState({
+            editModalActive : !this.state.editModalActive
         })
     }
     fetchContacts = () => {
@@ -88,6 +126,7 @@ class Main extends React.Component{
                     name={contact.name} 
                     phone={contact.phone}
                     visibility={contact.visibility}
+                    editContact={this.editContact}
                     deleteContact={this.deleteContact}
                 />
             )
@@ -106,13 +145,13 @@ class Main extends React.Component{
 
                 <div className="footer">
                     <span>Number of contacts: {this.state.contacts.length}</span>
-                    <button id="add-contact" type="submit" onClick={this.toggleModal}>+</button>
+                    <button id="add-contact" type="submit" onClick={this.toggleAddModal}>+</button>
                 </div>
-                <AddContactItem addContact={this.addContact} status={this.state.modalActive} control={this.toggleModal} />
+                <EditContactItem editContact={this.editContact} saveContact={this.saveContact} id={this.state.editId} name={this.state.editName} phone={this.state.editPhone} status={this.state.editModalActive} control={this.toggleEditModal} />
+                <AddContactItem addContact={this.addContact} status={this.state.addModalActive} control={this.toggleAddModal} />
             </div>            
         )
     }
 }
-
 
 export default Main

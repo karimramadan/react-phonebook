@@ -166,6 +166,7 @@ button:hover{
   position: absolute;
   width: 100%;
   padding: 2rem .75rem;
+  border-radius: 4px;
   background: #fff;
   transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1)
 }
@@ -193,7 +194,8 @@ button:hover{
   #App{
     flex-direction: row;
     height: calc( 100% - 36px );
-    width: 40%;
+    width: 30%;
+    min-width: 450px;
     margin: 19px auto;
   }
 }
