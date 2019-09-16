@@ -5,6 +5,15 @@ class EditContactItem extends React.Component{
         name: "",
         phone: "",
     }
+
+    componentDidUpdate(props) {
+        if (props.name !== this.state.name || props.phone !== this.state.phone) {
+          this.setState({
+            name: props.name,
+            phone: props.phone
+          });
+        }
+      }
     handleChange = (event) => {
         this.setState({
             [event.target.id]: event.target.value
