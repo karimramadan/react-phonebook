@@ -51,11 +51,13 @@ class Main extends React.Component{
     }
     editContact = (id, name, phone) => {
         console.log(id, name, phone)
-        this.toggleEditModal();
+   
         this.setState({
             editId: id,
             editName: name,
             editPhone: phone,
+        }, () => {
+            this.toggleEditModal();
         })
     }
     deleteContact = (id) => {

@@ -2,10 +2,26 @@ import React from "react"
 
 class EditContactItem extends React.Component{
     state = {
+        dirty: false,
         name: "",
         phone: "",
     }
+
+    componentDidUpdate(props) {
+        debugger;
+        if (
+            (props.name !== this.state.name || props.phone !== this.state.phone)
+            && !this.state.dirty
+            ) {
+          this.setState({
+            dirty: true,
+            name: props.name,
+            phone: props.phone
+          });
+        }
+      }
     handleChange = (event) => {
+        debugger;
         this.setState({
             [event.target.id]: event.target.value
         })
@@ -33,8 +49,8 @@ class EditContactItem extends React.Component{
                     <button id="toggle" onClick={this.props.control}>X</button>
                 </header>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" id="name" defaultValue={this.props.name} onChange={this.handleChange} required />
-                    <input type="tel" id="phone" defaultValue={this.props.phone} onChange={this.handleChange} required />
+                    <input type="text" id="name" value={this.state.name} onChange={this.handleChange} required />
+                    <input type="tel" id="phone" value={this.state.phone} onChange={this.handleChange} required />
                     <button>Save</button>
                 </form>
             </section>
