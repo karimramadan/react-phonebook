@@ -195,10 +195,7 @@ button:hover{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90%;
-  background: #fff;
-  padding: 2rem 1rem;
-  border-radius: 4px;
+  width: 90% !important;
 }
 .edit-card.active{
   display: block;
