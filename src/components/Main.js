@@ -44,6 +44,22 @@ class Main extends React.Component{
         })
         .catch(error => console.error('Error:', error));
     }
+    saveContact = (contact) => {
+        let {id, name, phone, visibility} = contact;
+        fetch("http://localhost:3004/contacts/" + id, {
+            method: 'PUT',
+            body: JSON.stringify({id, name, phone, visibility}),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(response => console.log('Success:', JSON.stringify(response)))
+        .then(()=> {
+            this.fetchContacts();
+        })
+        .catch(error => console.error('Error:', error));
+    }
     deleteContact = (id) => {
         fetch("http://localhost:3004/contacts/" + id, {
             method: 'DELETE',
@@ -88,6 +104,8 @@ class Main extends React.Component{
                     name={contact.name} 
                     phone={contact.phone}
                     visibility={contact.visibility}
+                    editContact={this.editContact}
+                    saveContact={this.saveContact}
                     deleteContact={this.deleteContact}
                 />
             )

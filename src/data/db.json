@@ -8,7 +8,7 @@
     },
     {
       "id": 2,
-      "name": "Ervin Howell",
+      "name": "Ervin Howell ramy",
       "phone": "010-692-6593 x09125",
       "visibility": true
     },
@@ -61,12 +61,6 @@
       "visibility": true
     },
     {
-      "id": "2zke0ov1f1fk0gzf9ns",
-      "visibility": true,
-      "name": "Ahmed ali",
-      "phone": "0124578"
-    },
-    {
       "id": "kz4xtiplrrkk0gzj4tq",
       "visibility": true,
       "name": "Emad hamdy",
@@ -80,21 +74,15 @@
     },
     {
       "id": "gxutodh5gyk0il8bzt",
-      "visibility": true,
-      "name": "ahmed baher",
-      "phone": "2324234"
+      "name": "Baher mohamady",
+      "phone": "2324234",
+      "visibility": true
     },
     {
       "id": "3ixh7yk1b6dk0ilbtiq",
       "visibility": true,
       "name": "alaa abdelfatah",
       "phone": "23123"
-    },
-    {
-      "id": "ez6wh1ambdak0im469u",
-      "visibility": true,
-      "name": "samy ",
-      "phone": "22"
     },
     {
       "id": "5sejyvv3owvk0im4oeo",
