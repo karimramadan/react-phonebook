@@ -195,16 +195,12 @@ button:hover{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90% !important;
 }
 .edit-card.active{
   display: block;
 }
 @media only screen and (min-width: 769px){
-  #App{
-    flex-direction: row;
-    height: calc( 100% - 36px );
-    width: 30%;
-    margin: 19px auto;
+  .edit-card {
+    width: 50% !important;
   }
 }

@@ -39,8 +39,8 @@ class ContactItem extends React.Component{
                 <li id={this.props.id}>
                     <span>
                         <strong>{this.props.name}</strong><br />
-                        {this.props.phone}
                     </span>
+                    <span>{this.props.phone}</span>
                     <div className="buttons-holder">
                         <button className="edit-button" onClick={this.handleClick}></button>
                         <button className="delete-button" onClick={() => {this.props.deleteContact(this.props.id)}}></button>

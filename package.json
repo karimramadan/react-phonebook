@@ -5,7 +5,6 @@
   "dependencies": {
     "json-server": "^0.15.1",
     "react": "^16.9.0",
-    "react-card-flip": "^0.8.1",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1"
   },
