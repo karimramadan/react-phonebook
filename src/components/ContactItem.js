@@ -45,6 +45,7 @@ class ContactItem extends React.Component{
                         <button className="edit-button" onClick={this.handleClick}></button>
                         <button className="delete-button" onClick={() => {this.props.deleteContact(this.props.id)}}></button>
                     </div>
+
                     <section className={editBox}>
                         <header>
                             <h3>Edit contact</h3>
@@ -56,6 +57,7 @@ class ContactItem extends React.Component{
                             <button>Save</button>
                         </form>
                     </section>
+                    
                 </li>
             )
         } else {
