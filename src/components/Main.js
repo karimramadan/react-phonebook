@@ -83,7 +83,7 @@ class Main extends React.Component{
             .then(data => {
                 this.setState({
                     isLoading: false,
-                    contacts: data,
+                    contacts: data.contacts,
                 })
             })
     }
@@ -118,7 +118,7 @@ class Main extends React.Component{
 
                 <div id="contacts" className={loading} >
                     <ul>
-                        { contacts  }
+                        { contacts }
                     </ul>
                 </div>
 
