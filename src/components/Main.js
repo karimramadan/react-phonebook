@@ -29,7 +29,7 @@ class Main extends React.Component{
     }
     addContact = (contact) => {
         // Sending data
-        fetch("http://localhost:3004/contacts", {
+        fetch("https://simple-express-server-project.herokuapp.com/contacts", {
             method: 'POST',
             body: JSON.stringify(contact),
             headers:{
@@ -46,7 +46,7 @@ class Main extends React.Component{
     }
     saveContact = (contact) => {
         let {id, name, phone, visibility} = contact;
-        fetch("http://localhost:3004/contacts/" + id, {
+        fetch("https://simple-express-server-project.herokuapp.com/contacts/" + id, {
             method: 'PUT',
             body: JSON.stringify({id, name, phone, visibility}),
             headers:{
@@ -61,7 +61,7 @@ class Main extends React.Component{
         .catch(error => console.error('Error:', error));
     }
     deleteContact = (id) => {
-        fetch("http://localhost:3004/contacts/" + id, {
+        fetch("https://simple-express-server-project.herokuapp.com/contacts/" + id, {
             method: 'DELETE',
             headers:{
                 'Content-Type': 'application/json'
@@ -78,7 +78,7 @@ class Main extends React.Component{
         })
     }
     fetchContacts = () => {
-        fetch("http://localhost:3004/contacts")
+        fetch("https://simple-express-server-project.herokuapp.com/contacts")
             .then(response => response.json())
             .then(data => {
                 this.setState({
