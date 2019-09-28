@@ -91,7 +91,7 @@ class Main extends React.Component{
         this.fetchContacts();    
     }
     render(){
-        let loading = this.state.isLoading ? "Loading" : null;
+        let loading = this.state.isLoading ? "loading" : null;
         const contacts = this.state.contacts.sort( (a, b) => {
             if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
             if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
