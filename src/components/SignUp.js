@@ -19,7 +19,7 @@ class SignUp extends React.Component{
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
         .then(cred => {
             const uid = cred.user.uid;
-            fetch("http://localhost:5000/" + uid, {
+            fetch("https://react-phone-book-project.herokuapp.com/" + uid, {
             method: 'POST',
             })
             .then(res => res.json())
